@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0B0E16">
+<meta name="description" content="Ahmad Fajri — Desainer grafis spesialis desain poster hari besar dan nasional. Lihat portofolio dan hubungi untuk kolaborasi.">
+<title>Ahmad Fajri - Desainer Grafis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0E16;
+    --ink-2:#0F1220;
+    --surface:#151926;
+    --surface-2:#1B2032;
+    --line:#262B3C;
+    --line-soft:rgba(217,159,58,.22);
+    --gold:#D99F3A;
+    --gold-soft:#E9C077;
+    --paper:#EDEEF3;
+    --paper-dim:#9AA1B4;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+
+  section[id]{scroll-margin-top:84px;}
+
+  /* ===== Grain / texture overlay ===== */
+  .grain{
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:2;
+    opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  section{position:relative;z-index:1;}
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  .eyebrow{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    font-weight:600;
+  }
+
+  /* ===== NAV ===== */
+  .nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(11,14,22,.72);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 0;
+  }
+
+  .nav-logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:.01em;
+    color:var(--paper);
+    text-decoration:none;
+  }
+
+  .nav-logo span{color:var(--gold-soft);}
+
+  .nav-links{display:flex;gap:30px;}
+
+  .nav-links a{
+    font-size:13px;
+    font-weight:500;
+    color:var(--paper-dim);
+    text-decoration:none;
+    letter-spacing:.01em;
+    transition:color .25s ease;
+  }
+
+  .nav-links a:hover{color:var(--gold-soft);}
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height:100dvh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    padding:80px 0 90px;
+    background:linear-gradient(180deg, var(--ink) 0%, #0D1018 60%, var(--ink) 100%);
+    overflow:hidden;
+  }
+
+  .spotlight{
+    position:absolute;
+    top:-12%;
+    right:-14%;
+    width:760px;
+    height:760px;
+    background:radial-gradient(circle, rgba(217,159,58,.16), transparent 65%);
+    pointer-events:none;
+    animation:sweep 16s ease-in-out infinite alternate;
+  }
+
+  @keyframes sweep{
+    0%{transform:translate(0,0) scale(1);}
+    100%{transform:translate(-20px,16px) scale(1.05);}
+  }
+
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:56px;
+    align-items:center;
+  }
+
+  .hero-name{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(46px, 7.5vw, 92px);
+    line-height:.98;
+    letter-spacing:-.02em;
+    margin:18px 0 26px;
+    color:var(--paper);
+  }
+
+  .hero-name em{
+    font-style:normal;
+    color:var(--gold-soft);
+  }
+
+  .hero-desc{
+    max-width:520px;
+    font-size:clamp(15px, 1.6vw, 17px);
+    line-height:1.7;
+    color:var(--paper-dim);
+  }
+
+  .hero-desc strong{color:var(--paper);font-weight:600;}
+
+  .hero-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:26px;
+  }
+
+  .hero-tags span{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;
+    letter-spacing:.03em;
+    padding:8px 15px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--paper-dim);
+  }
+
+  .hero-cta{
+    margin-top:38px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    padding:14px 28px;
+    border-radius:999px;
+    text-decoration:none;
+    transition:transform .25s ease, box-shadow .25s ease, color .25s ease, border-color .25s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .btn-solid{
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color:#1A1204;
+  }
+
+  .btn-solid:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px -12px rgba(217,159,58,.55);
+  }
+
+  .btn-outline{
+    border:1px solid var(--line);
+    color:var(--paper);
+  }
+
+  .btn-outline:hover{
+    border-color:var(--gold-soft);
+    color:var(--gold-soft);
+  }
+
+  /* ===== HERO ART (elemen visual bertema desain cetak) ===== */
+  .hero-art{
+    position:relative;
+    justify-self:center;
+    width:100%;
+    max-width:340px;
+    height:360px;
+  }
+
+  .hero-art-frame{
+    position:absolute;
+    inset:22px 0 0 22px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:linear-gradient(160deg, var(--surface), var(--ink-2));
+    transform:rotate(-2deg);
+  }
+
+  .hero-art-frame::before{
+    content:"";
+    position:absolute;
+    inset:24px;
+    border:1px dashed var(--line-soft);
+  }
+
+  .hero-art-ghost{
+    position:absolute;
+    right:-6px;
+    bottom:-24px;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:170px;
+    line-height:1;
+    color:transparent;
+    -webkit-text-stroke:1px var(--line-soft);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .hero-float{
+    position:absolute;
+    pointer-events:none;
+    z-index:2;
+  }
+
+  .hero-float.f1{
+    top:-8px;right:34px;
+    width:10px;height:10px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 10px rgba(217,159,58,.7);
+    animation:floatA 7s ease-in-out infinite alternate;
+  }
+
+  .hero-float.f2{
+    top:38%;left:-16px;
+    width:24px;height:24px;
+    border-radius:50%;
+    border:1.5px solid var(--gold-soft);
+    animation:floatB 9.5s ease-in-out infinite alternate;
+  }
+
+  .hero-float.f3{
+    bottom:20px;left:-10px;
+    width:12px;height:12px;
+    border:1.5px solid var(--line-soft);
+    transform:rotate(12deg);
+    animation:floatC 6.5s ease-in-out infinite alternate;
+  }
+
+  .hero-float.f4{
+    bottom:-12px;right:58px;
+    width:13px;height:13px;
+    animation:floatD 11s ease-in-out infinite alternate;
+  }
+
+  .hero-float.f4::before,
+  .hero-float.f4::after{
+    content:"";
+    position:absolute;
+    background:var(--gold-soft);
+  }
+
+  .hero-float.f4::before{top:50%;left:0;right:0;height:1.4px;transform:translateY(-50%);}
+  .hero-float.f4::after{left:50%;top:0;bottom:0;width:1.4px;transform:translateX(-50%);}
+
+  @keyframes floatA{
+    0%{transform:translate(0,0) rotate(0deg);}
+    30%{transform:translate(11px,-15px) rotate(10deg);}
+    60%{transform:translate(-6px,-5px) rotate(-6deg);}
+    100%{transform:translate(4px,11px) rotate(5deg);}
+  }
+
+  @keyframes floatB{
+    0%{transform:translate(0,0) rotate(0deg);}
+    25%{transform:translate(-13px,9px) rotate(-10deg);}
+    55%{transform:translate(7px,15px) rotate(7deg);}
+    100%{transform:translate(-9px,-7px) rotate(-4deg);}
+  }
+
+  @keyframes floatC{
+    0%{transform:translate(0,0) rotate(12deg);}
+    40%{transform:translate(10px,10px) rotate(20deg);}
+    70%{transform:translate(-11px,3px) rotate(2deg);}
+    100%{transform:translate(3px,-10px) rotate(16deg);}
+  }
+
+  @keyframes floatD{
+    0%{transform:translate(0,0) scale(1);}
+    35%{transform:translate(-8px,-12px) scale(1.15);}
+    65%{transform:translate(9px,6px) scale(.9);}
+    100%{transform:translate(-5px,9px) scale(1.05);}
+  }
+
+  .hero-art-chip{
+    position:absolute;
+    left:-10px;
+    bottom:34px;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:8px 14px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    z-index:3;
+    white-space:nowrap;
+  }
+
+  @media (min-width:960px){
+    .hero-inner{grid-template-columns:1.15fr .85fr;}
+    .hero-art{justify-self:end;}
+  }
+
+  /* ===== TICKER ===== */
+  .ticker{
+    overflow:hidden;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--ink-2);
+    padding:16px 0;
+  }
+
+  .ticker-track{
+    display:flex;
+    width:max-content;
+    gap:44px;
+    animation:marquee 26s linear infinite;
+  }
+
+  .ticker-track span{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+    white-space:nowrap;
+  }
+
+  .ticker-track span.accent{color:var(--gold-soft);}
+
+  @keyframes marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ===== SECTION HEADER ===== */
+  .section-head{
+    padding:110px 0 46px;
+  }
+
+  .section-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(28px, 4vw, 42px);
+    margin-top:14px;
+    color:var(--paper);
+  }
+
+  .section-sub{
+    margin-top:14px;
+    color:var(--paper-dim);
+    font-size:15px;
+    max-width:520px;
+    line-height:1.6;
+  }
+
+  /* ===== POSTER GRID (potret) ===== */
+  .poster-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    padding-bottom:80px;
+  }
+
+  .poster-card{
+    position:relative;
+    aspect-ratio:9/16;
+    border-radius:14px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    overflow:hidden;
+    transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+  }
+
+  .poster-card:hover{
+    transform:translateY(-6px);
+    border-color:var(--gold);
+    box-shadow:0 22px 44px -22px rgba(217,159,58,.4);
+  }
+
+  .poster-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    transition:transform .6s ease;
+  }
+
+  .poster-card:hover img{transform:scale(1.06);}
+
+  .poster-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, transparent 45%, rgba(11,14,22,.9) 100%);
+    z-index:1;
+  }
+
+  .pin{
+    position:absolute;
+    top:14px;left:50%;
+    transform:translateX(-50%);
+    width:9px;height:9px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 10px rgba(217,159,58,.85);
+    z-index:3;
+  }
+
+  .poster-label{
+    position:absolute;
+    left:16px;bottom:16px;
+    z-index:2;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:500;
+    font-size:13px;
+    color:var(--paper);
+    letter-spacing:.02em;
+  }
+
+  .poster-num{
+    position:absolute;
+    right:16px;bottom:16px;
+    z-index:2;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    color:var(--gold-soft);
+  }
+
+  .corner-marks::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:2;
+    background-repeat:no-repeat;
+    background-size:12px 12px;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M1 1H9M1 1V9' stroke='%23D99F3A' stroke-width='1.4' fill='none' stroke-linecap='square'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M11 1H3M11 1V9' stroke='%23D99F3A' stroke-width='1.4' fill='none' stroke-linecap='square'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M1 11H9M1 11V3' stroke='%23D99F3A' stroke-width='1.4' fill='none' stroke-linecap='square'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M11 11H3M11 11V3' stroke='%23D99F3A' stroke-width='1.4' fill='none' stroke-linecap='square'/%3E%3C/svg%3E");
+    background-position:
+      8px 8px,
+      calc(100% - 20px) 8px,
+      8px calc(100% - 20px),
+      calc(100% - 20px) calc(100% - 20px);
+  }
+
+  /* ===== POSTER GRID (lanskap) ===== */
+  .poster-grids{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    padding-bottom:110px;
+  }
+
+  .poster-cards{
+    position:relative;
+    aspect-ratio:16/9;
+    width:100%;
+    border-radius:14px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    overflow:hidden;
+    transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+  }
+
+  .poster-cards:hover{
+    transform:translateY(-6px);
+    border-color:var(--gold);
+    box-shadow:0 22px 44px -22px rgba(217,159,58,.4);
+  }
+
+  .poster-cards img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    transition:transform .6s ease;
+  }
+
+  .poster-cards:hover img{transform:scale(1.05);}
+
+  .pin1{
+    position:absolute;
+    top:14px;left:50%;
+    transform:translateX(-50%);
+    width:9px;height:9px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 10px rgba(217,159,58,.85);
+    z-index:3;
+  }
+
+  .poster-labels{
+    position:absolute;
+    left:18px;bottom:16px;
+    z-index:2;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    font-weight:500;
+    color:var(--paper);
+    letter-spacing:.02em;
+  }
+
+  .poster-nums{
+    position:absolute;
+    right:18px;bottom:16px;
+    z-index:2;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    color:var(--gold-soft);
+  }
+
+  /* ===== CONTACT ===== */
+  .contact{
+    padding:120px 0 90px;
+    text-align:center;
+  }
+
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 16px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;
+    letter-spacing:.03em;
+    color:var(--paper-dim);
+    margin-bottom:24px;
+  }
+
+  .badge-dot{
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 8px rgba(217,159,58,.8);
+  }
+
+  .contact-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(30px, 5vw, 50px);
+    margin:14px 0 18px;
+    color:var(--paper);
+  }
+
+  .contact-sub{
+    color:var(--paper-dim);
+    max-width:480px;
+    margin:0 auto 44px;
+    line-height:1.6;
+  }
+
+  .contact-row{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:18px;
+  }
+
+  .chip{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:16px 26px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--surface);
+    color:var(--paper);
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    transition:all .3s ease;
+  }
+
+  .chip:hover{
+    border-color:var(--gold-soft);
+    background:rgba(217,159,58,.1);
+    transform:translateY(-2px);
+  }
+
+  .chip-dot{
+    width:8px;height:8px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 10px rgba(217,159,58,.8);
+  }
+
+  footer{
+    text-align:center;
+    padding:36px 0 46px;
+    color:var(--paper-dim);
+    font-size:13px;
+    border-top:1px solid var(--line);
+  }
+
+  footer span{color:var(--gold-soft);}
+
+  /* ===== REVEAL ON SCROLL ===== */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+
+  .reveal.in-view{opacity:1;transform:none;}
+
+  .poster-grid .reveal:nth-child(2){transition-delay:.06s;}
+  .poster-grid .reveal:nth-child(3){transition-delay:.12s;}
+  .poster-grid .reveal:nth-child(4){transition-delay:.18s;}
+  .poster-grid .reveal:nth-child(5){transition-delay:.24s;}
+  .poster-grid .reveal:nth-child(6){transition-delay:.3s;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:960px){
+    .hero-art{max-width:300px;height:320px;margin-top:8px;}
+    .hero-art-ghost{font-size:130px;}
+  }
+
+  @media (max-width:820px){
+    .poster-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+
+  @media (max-width:520px){
+    .wrap{padding:0 20px;}
+    .poster-grid{grid-template-columns:repeat(2, 1fr);gap:14px;}
+    .hero{padding:60px 0 60px;}
+    .nav-links{gap:16px;}
+    .section-head{padding:80px 0 34px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .spotlight{animation:none;}
+    .ticker-track{animation:none;}
+    .hero-float{animation:none;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    *{transition:none !important;}
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold-soft);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo">Ahmad<span>Fajri</span></a>
+    <div class="nav-links">
+      <a href="#poster">Poster</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO / PENGENALAN DIRI ===== -->
+<section class="hero" id="top">
+  <div class="spotlight"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">Desainer Grafis</div>
+      <h1 class="hero-name">Ahmad<br><em>Fajri</em></h1>
+      <p class="hero-desc">
+        Hai, saya <strong>Ahmad Fajri</strong>, seorang desainer grafis yang siap membantu
+        merealisasikan konsep desain anda secara cepat.
+      </p>
+      <div class="hero-tags">
+        <span>Desain Poster</span>
+        <span>Layout &amp; Tipografi</span>
+        <span>Identitas Visual</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#poster" class="btn btn-solid">Lihat Poster →</a>
+        <a href="#kontak" class="btn btn-outline">Hubungi Saya</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="hero-art-frame"></div>
+      <span class="hero-art-ghost">Aa</span>
+      <span class="hero-float f1" aria-hidden="true"></span>
+      <span class="hero-float f2" aria-hidden="true"></span>
+      <span class="hero-float f3" aria-hidden="true"></span>
+      <span class="hero-float f4" aria-hidden="true"></span>
+      <span class="hero-art-chip">N° 01 - Cetak</span>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Desain Poster</span><span class="accent">·</span>
+    <span>Tipografi</span><span class="accent">·</span>
+    <span>Layout Visual</span><span class="accent">·</span>
+    <span>Logo</span><span class="accent">·</span>
+    <span>Desain Poster</span><span class="accent">·</span>
+    <span>Tipografi</span><span class="accent">·</span>
+    <span>Layout Visual</span><span class="accent">·</span>
+    <span>Logo</span><span class="accent">·</span>
+  </div>
+</div>
+
+<!-- ===== POSTER SECTION ===== -->
+<section id="poster">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Galeri Karya</div>
+      <h2 class="section-title">Koleksi Poster</h2>
+      <p class="section-sub">Poster hari besar dan nasional.</p>
+    </div>
+
+    <div class="poster-grid">
+      <div class="poster-card corner-marks reveal"><span class="pin"></span><img src="poster1.jpg" alt="Poster hari besar nasional 01" loading="lazy"><span class="poster-overlay"></span><span class="poster-label">Poster Potret</span><span class="poster-num">01</span></div>
+
+      <div class="poster-card corner-marks reveal"><span class="pin"></span><img src="poster2.jpg" alt="Poster hari besar nasional 02" loading="lazy"><span class="poster-overlay"></span><span class="poster-label">Poster Potret</span><span class="poster-num">02</span></div>
+
+      <div class="poster-card corner-marks reveal"><span class="pin"></span><img src="poster3.jpg" alt="Poster hari besar nasional 03" loading="lazy"><span class="poster-overlay"></span><span class="poster-label">Poster Potret</span><span class="poster-num">03</span></div>
+
+      <div class="poster-card corner-marks reveal"><span class="pin"></span><img src="poster4.jpg" alt="Poster hari besar nasional 04" loading="lazy"><span class="poster-overlay"></span><span class="poster-label">Poster Potret</span><span class="poster-num">04</span></div>
+
+      <div class="poster-card corner-marks reveal"><span class="pin"></span><img src="poster5.jpg" alt="Poster hari besar nasional 05" loading="lazy"><span class="poster-overlay"></span><span class="poster-label">Poster Potret</span><span class="poster-num">05</span></div>
+
+      <div class="poster-card corner-marks reveal"><span class="pin"></span><img src="poster6.jpg" alt="Poster hari besar nasional 06" loading="lazy"><span class="poster-overlay"></span><span class="poster-label">Poster Potret</span><span class="poster-num">06</span></div>
+    </div>
+
+    <div class="poster-grids">
+      <div class="poster-cards reveal"><span class="pin1"></span><img src="poster 1x.jpg" alt="Poster desain lanskap 01" loading="lazy"><span class="poster-overlay"></span><span class="poster-labels">Poster Landscape</span><span class="poster-nums">01</span></div>
+
+      <div class="poster-cards reveal"><span class="pin1"></span><img src="poster x2.jpg" alt="Poster desain lanskap 02" loading="lazy"><span class="poster-overlay"></span><span class="poster-labels">Poster Landscape</span><span class="poster-nums">02</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== KONTAK ===== -->
+<section class="contact reveal" id="kontak">
+  <div class="wrap">
+    <span class="badge"><span class="badge-dot"></span>Terbuka untuk kolaborasi</span>
+    <div class="eyebrow">Mari Berkolaborasi</div>
+    <h2 class="contact-title">Hubungi Saya</h2>
+    <p class="contact-sub">Punya konsep desain yang ingin direalisasikan? Kirim pesan lewat email atau media sosial di bawah ini.</p>
+
+    <div class="contact-row">
+      <a class="chip" href="mailto:fajrigame516@gmail.com"><span class="chip-dot"></span>fajrigame516@gmail.com</a>
+      <a class="chip" href="https://www.instagram.com/fajri_144_fl/" target="_blank" rel="noopener">@fajri_144_fl</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Ahmad Fajri - <span>Desain Grafis.</span></div>
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduced || !('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('in-view'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:.15 });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
